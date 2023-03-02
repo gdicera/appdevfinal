@@ -2,7 +2,7 @@
 
 <h3>VaiLocal is a hyper-local jobs board and social network for high school and college students. Apart from listing jobs on our site, we also seek to connect high schoolers who have questions about college, internships, scholarships, athletics recruiting, and more on a forum with college students who can offer guidance. </h3>
 
-<h1>Create your account today!</h1>
+<h2>Create your account today!</h2>
 
 <form action="/insert_user" method="post">
 
@@ -23,11 +23,10 @@
     <input type="text" id="last_name_box" name="query_last_name">
   </div>
         
-         
   <div>
     <label for="profile_picture_box">Profile picture</label>
       
-    <input type="text" id="profile_picture_box" placeholder="Upload your profile picture. Files should be <10MB>" name="query_profile_picture">
+    <input type="file" id="profile_picture_box" placeholder="Upload your profile picture. Files should be <10MB>" name="query_profile_picture" enctype="multipart/form-data">
   </div>
          
   <div>
@@ -36,7 +35,6 @@
     <input type="text" id="school_name_box" placeholder="Your current school" name="query_school_name">
   </div>
          
-    
   <div>
     <label for="password_box">Password</label>
     <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">

@@ -43,12 +43,8 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.post_id = params.fetch("query_post_id")
-    @user.profile_picture = params.fetch("query_profile_picture")
+    @user.profile_picture = params.fetch(:image)
     @user.school_name = params.fetch("query_school_name")
-    @user.liked_posts_count = params.fetch("query_liked_posts_count")
-    @user.posts_count = params.fetch("query_posts_count")
-    @user.topics_count = params.fetch("query_topics_count")
 
     save_status = @user.save
 
@@ -72,12 +68,8 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.post_id = params.fetch("query_post_id")
-    @user.profile_picture = params.fetch("query_profile_picture")
+    @user.profile_picture = params.fetch(:image)
     @user.school_name = params.fetch("query_school_name")
-    @user.liked_posts_count = params.fetch("query_liked_posts_count")
-    @user.posts_count = params.fetch("query_posts_count")
-    @user.topics_count = params.fetch("query_topics_count")
     
     if @user.valid?
       @user.save

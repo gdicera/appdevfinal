@@ -18,38 +18,22 @@
         <input id="last_name_box" name="query_last_name" value="<%= @current_user.last_name %>">
       </div>
       <div>
-        <label for="post_id_box">Post</label>
-        <input id="post_id_box" name="query_post_id" value="<%= @current_user.post_id %>">
-      </div>
-      <div>
         <label for="profile_picture_box">Profile picture</label>
-        <input id="profile_picture_box" name="query_profile_picture" value="<%= @current_user.profile_picture %>">
+        <input type = "file" id="profile_picture_box" name="query_profile_picture" value="<%= @current_user.profile_picture %>" enctype="multipart/form-data">
       </div>
       <div>
         <label for="school_name_box">School name</label>
         <input id="school_name_box" name="query_school_name" value="<%= @current_user.school_name %>">
       </div>
-      <div>
-        <label for="liked_posts_count_box">Liked posts count</label>
-        <input id="liked_posts_count_box" name="query_liked_posts_count" value="<%= @current_user.liked_posts_count %>">
-      </div>
-      <div>
-        <label for="posts_count_box">Posts count</label>
-        <input id="posts_count_box" name="query_posts_count" value="<%= @current_user.posts_count %>">
-      </div>
-      <div>
-        <label for="topics_count_box">Topics count</label>
-        <input id="topics_count_box" name="query_topics_count" value="<%= @current_user.topics_count %>">
-      </div>
 
       <div>
-        <label for="password_box">Password</label>
-        <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+        <label for="password_box">New Password</label>
+        <input id="password_box" name="query_password" placeholder="Choose a new password..." type="password">
       </div>
     
       <div>
-        <label for="password_confirmation_box">Password Confirmation</label>
-        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+        <label for="password_confirmation_box">New Password Confirmation</label>
+        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your new password..." type="password">
       </div>
 
       <button>
