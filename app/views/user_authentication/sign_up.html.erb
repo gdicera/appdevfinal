@@ -1,0 +1,59 @@
+<h1> Welcome to VaiLocal! </h1>
+
+<h3>VaiLocal is a hyper-local jobs board and social network for high school and college students. Apart from listing jobs on our site, we also seek to connect high schoolers who have questions about college, internships, scholarships, athletics recruiting, and more on a forum with college students who can offer guidance. </h3>
+
+<h1>Create your account today!</h1>
+
+<form action="/insert_user" method="post">
+
+  <div>
+    <label for="email_box">Email</label>
+    <input id="email_box" name="query_email" type="text">
+  </div>
+                 
+  <div>
+    <label for="first_name_box">First name</label>
+      
+    <input type="text" id="first_name_box" name="query_first_name">
+  </div>
+         
+  <div>
+    <label for="last_name_box">Last name</label>
+      
+    <input type="text" id="last_name_box" name="query_last_name">
+  </div>
+        
+         
+  <div>
+    <label for="profile_picture_box">Profile picture</label>
+      
+    <input type="text" id="profile_picture_box" placeholder="Upload your profile picture. Files should be <10MB>" name="query_profile_picture">
+  </div>
+         
+  <div>
+    <label for="school_name_box">School name</label>
+      
+    <input type="text" id="school_name_box" placeholder="Your current school" name="query_school_name">
+  </div>
+         
+    
+  <div>
+    <label for="password_box">Password</label>
+    <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+  </div>
+
+  <div>
+    <label for="password_confirmation_box">Password Confirmation</label>
+    <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+  </div>
+
+  <button>
+    Sign up
+  </button>
+</form>
+
+<hr>
+
+<p>
+  Or, <a href="/user_sign_in">Sign in</a> instead.
+</p>
