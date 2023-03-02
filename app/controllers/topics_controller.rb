@@ -19,9 +19,10 @@ class TopicsController < ApplicationController
 
   def create
     the_topic = Topic.new
-    the_topic.user_id = params.fetch("query_user_id")
-    the_topic.post_id = params.fetch("query_post_id")
-    the_topic.posts_count = params.fetch("query_posts_count")
+    #the_topic.user_id = params.fetch("query_user_id")
+    #the_topic.post_id = params.fetch("query_post_id")
+    the_topic.name = params.fetch("query_topic")
+    #the_topic.posts_count = params.fetch("query_posts_count")
 
     if the_topic.valid?
       the_topic.save
@@ -37,6 +38,7 @@ class TopicsController < ApplicationController
 
     the_topic.user_id = params.fetch("query_user_id")
     the_topic.post_id = params.fetch("query_post_id")
+    the_topic.name = params.fetch("query_name")
     the_topic.posts_count = params.fetch("query_posts_count")
 
     if the_topic.valid?

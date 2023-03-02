@@ -3,6 +3,7 @@
 # Table name: topics
 #
 #  id          :integer          not null, primary key
+#  name        :string
 #  posts_count :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

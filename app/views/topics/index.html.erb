@@ -1,52 +1,13 @@
 <div>
   <div>
-    <h1>
-      List of all topics
-    </h1>
+    <h1>VaiLocal Topics</h1>
   </div>
 </div>
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new topic
-    </h2>
+<h2> What topics do you want to explore? </h2>
 
-    <form action="/insert_topic" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
-        <label for="post_id_box">
-          Post
-        </label>
-
-        <input type="text" id="post_id_box" name="query_post_id">
-      </div>
-
-      <div>
-        <label for="posts_count_box">
-          Posts count
-        </label>
-
-        <input type="text" id="posts_count_box" name="query_posts_count">
-      </div>
-
-      <button>
-        Create topic
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
 <div>
   <div>
     <table border="1">
@@ -56,15 +17,11 @@
         </th>
 
         <th>
+          Topic
+        </th>
+
+        <th>
           User
-        </th>
-
-        <th>
-          Post
-        </th>
-
-        <th>
-          Posts count
         </th>
 
         <th>
@@ -75,8 +32,6 @@
           Updated at
         </th>
 
-        <th>
-        </th>
       </tr>
 
       <% @list_of_topics.each do |a_topic| %>
@@ -86,15 +41,11 @@
         </td>
 
         <td>
+          <%= a_topic.name %>
+        </td>
+
+        <td>
           <%= a_topic.user_id %>
-        </td>
-
-        <td>
-          <%= a_topic.post_id %>
-        </td>
-
-        <td>
-          <%= a_topic.posts_count %>
         </td>
 
         <td>
@@ -116,3 +67,18 @@
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <h2>Add a new topic</h2>
+
+    <form action="/insert_topic" method="post">
+      <div>
+        <label for="topic_box">Topic</label>
+        <input type="text" id="topic_box" name="query_topic" size="120">
+      </div>
+
+      <button>Create topic</button>
+    </form>
+  </div>
+</div>
