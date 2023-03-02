@@ -27,5 +27,5 @@ class User < ApplicationRecord
   has_many(:favorite_posts, { :through => :liked_posts, :source => :post })
 
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :profile_picture, ImageUploader
 end
