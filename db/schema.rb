@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_232417) do
+ActiveRecord::Schema.define(version: 2023_03_03_004946) do
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "topics", force: :cascade do |t|
     t.integer "user_id"

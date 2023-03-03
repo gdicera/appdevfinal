@@ -5,8 +5,11 @@ class TopicsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch(:the_topic_id)
+    the_id = params.fetch("path_id")
     @topic = Topic.where({ :id => the_id }).at(0)
+
+    @list_of_posts = @topic.posts
+    
     render({ :template => "topics/show.html.erb" })
   end
 

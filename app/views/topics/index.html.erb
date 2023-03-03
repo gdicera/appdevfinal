@@ -10,34 +10,21 @@
   <div>
     <table border="1">
       <tr>
-        <th>#</th>
         <th>Topic</th>
         <th>Asked by</th>
         <th>View</th>
+        <th>Created</th>
+        <th>Updated</th>
       </tr>
 
       <% @topics.each do |a_topic| %>
       <tr>
-        <td>
-          <%= a_topic.id %>
-        </td>
+        <td><%= a_topic.body %></td>
+        <td><%= a_topic.creator.first_name %> <%= a_topic.creator.last_name %></td>
+        <td><a href="/topics/<%= a_topic.id %>">See posts on topic</a></td>
+        <td><%= time_ago_in_words(a_topic.created_at) %> ago</td>
+        <td><%= time_ago_in_words(a_topic.updated_at) %> ago</td>
 
-        <td>
-          <%= a_topic.body %>
-        </td>
-
-        <td>
-          <%= a_topic.creator.first_name %> + <%= a_topic.creator.last_name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_topic.created_at) %> ago
-
-        <td>
-          <a href="/topics/<%= a_topic.id %>">
-            See posts on topic
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

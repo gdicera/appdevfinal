@@ -1,99 +1,49 @@
-<h1><%= @the_topic.body %> </h1>
+<h1><%= @topic.body %> </h1>
+<h2><td>Asked by <%= @topic.creator.first_name %> <%= @topic.creator.last_name %></td> <td><%= time_ago_in_words(@topic.created_at) %> ago</td></h2>
+
 
 <div>
   <div>
-    <div>
-      <div>
-        <a href="/topics">
-          Go back
-        </a>
-      </div>
+    <table border="1">
+      <tr>
+        <th>Answered by</th>
+        <th>Post</th>
+        <th>Created</th>
+        <th>Updated</th>
+      </tr>
 
-      <div>
-        <a href="/delete_topic/<%= @the_topic.id %>">
-          Delete topic
-        </a>
-      </div>
-    </div>
+      <% @list_of_posts.each do |a_post| %>
+      <tr>
+        <td><%= a_post.id %></td>
+        <td><%= a_post.poster.first_name %> <%= a_post.poster.last_name %></td>
 
-    <dl>
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_topic.user_id %>
-      </dd>
 
-      <dt>
-        Post
-      </dt>
-      <dd>
-        <%= @the_topic.post_id %>
-      </dd>
-
-      <dt>
-        Posts count
-      </dt>
-      <dd>
-        <%= @the_topic.posts_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_topic.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_topic.updated_at) %> ago
-      </dd>
-    </dl>
+        <td><%= a_post.user_id %></td>
+        <td><%= a_post.topic_id %></td>
+        <td><%= a_post.body %></td>
+        <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
+        <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
+        <td><a href="/posts/<%= a_post.id %>">Show details</a></td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 
-<hr>
+
 
 
 <div>
   <div>
-    <h2>
-      Edit topic
-    </h2>
+    <h2>Add a new post</h2>
 
-    <form action="/modify_topic/<%= @the_topic.id %>"  method="post" >
+    <form action="/insert_post" method="post">
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_topic.user_id %>">
+        <label for="post_box">Create a New Discussion Topic</label>
+        <textarea id = "post_box" name = "input_body" placeholder = "Enter a new post ..."></textarea>
       </div>
 
-      <div>
-        <label for="post_id_box">
-          Post
-        </label>
-
-        <input type="text" id="post_id_box" name="query_post_id" value="<%= @the_topic.post_id %>">
-      </div>
-
-      <div>
-        <label for="posts_count_box">
-          Posts count
-        </label>
-
-        <input type="text" id="posts_count_box" name="query_posts_count" value="<%= @the_topic.posts_count %>">
-      </div>
-
-      <button>
-        Update topic
-      </button>
+      <button>Create new topic</button>
     </form>
   </div>
 </div>
-
-<hr>
