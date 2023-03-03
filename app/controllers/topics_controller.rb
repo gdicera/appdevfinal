@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all.order({ :created_at => :asc})
+    @topics = Topic.all.order({ :created_at => :desc})
     render({ :template => "topics/index.html.erb" })
   end
 
