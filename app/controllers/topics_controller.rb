@@ -1,28 +1,19 @@
 class TopicsController < ApplicationController
   def index
-    matching_topics = Topic.all
-
-    @list_of_topics = matching_topics.order({ :created_at => :desc })
-
+    @topics = Topic.all.order({ :created_at => :asc})
     render({ :template => "topics/index.html.erb" })
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_topics = Topic.where({ :id => the_id })
-
-    @the_topic = matching_topics.at(0)
-
+    the_id = params.fetch(:the_topic_id)
+    @topic = Topic.where({ :id => the_id }).at(0)
     render({ :template => "topics/show.html.erb" })
   end
 
   def create
     the_topic = Topic.new
-    #the_topic.user_id = params.fetch("query_user_id")
-    #the_topic.post_id = params.fetch("query_post_id")
-    the_topic.name = params.fetch("query_topic")
-    #the_topic.posts_count = params.fetch("query_posts_count")
+    the_topic.user_id = session.fetch(:user_id)
+    the_topic.body = params.fetch("input_body")
 
     if the_topic.valid?
       the_topic.save
@@ -36,10 +27,9 @@ class TopicsController < ApplicationController
     the_id = params.fetch("path_id")
     the_topic = Topic.where({ :id => the_id }).at(0)
 
-    the_topic.user_id = params.fetch("query_user_id")
-    the_topic.post_id = params.fetch("query_post_id")
-    the_topic.name = params.fetch("query_name")
-    the_topic.posts_count = params.fetch("query_posts_count")
+    #the_topic.id = params.fetch("query_topic_id")
+    the_topic.author_id = session.fetch(:user_id)
+    the_topic.body = params.fetch("input_body")
 
     if the_topic.valid?
       the_topic.save

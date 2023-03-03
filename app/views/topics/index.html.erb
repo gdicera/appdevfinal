@@ -1,7 +1,5 @@
 <div>
-  <div>
-    <h1>VaiLocal Topics</h1>
-  </div>
+  <div><h1>VaiLocal Topics</h1></div>
 </div>
 
 <hr>
@@ -12,52 +10,32 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Topic
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
+        <th>#</th>
+        <th>Topic</th>
+        <th>Asked by</th>
+        <th>View</th>
       </tr>
 
-      <% @list_of_topics.each do |a_topic| %>
+      <% @topics.each do |a_topic| %>
       <tr>
         <td>
           <%= a_topic.id %>
         </td>
 
         <td>
-          <%= a_topic.name %>
+          <%= a_topic.body %>
         </td>
 
         <td>
-          <%= a_topic.user_id %>
+          <%= a_topic.creator.first_name %> + <%= a_topic.creator.last_name %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_topic.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_topic.updated_at) %> ago
-        </td>
 
         <td>
           <a href="/topics/<%= a_topic.id %>">
-            Show details
+            See posts on topic
           </a>
         </td>
       </tr>
@@ -74,11 +52,11 @@
 
     <form action="/insert_topic" method="post">
       <div>
-        <label for="topic_box">Topic</label>
-        <input type="text" id="topic_box" name="query_topic" size="120">
+        <label for="topic_box">Create a New Discussion Topic</label>
+        <textarea id = "topic_box" name = "input_body" placeholder = "Enter a new discussion topic..."></textarea>
       </div>
 
-      <button>Create topic</button>
+      <button>Create new topic</button>
     </form>
   </div>
 </div>
