@@ -10,6 +10,7 @@
         <th>Post</th>
         <th>Created</th>
         <th>Updated</th>
+        <th>Show details</th>
       </tr>
 
       <% @list_of_posts.each do |a_post| %>
@@ -18,6 +19,7 @@
         <td><%= a_post.body %></td>
         <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
+        <td><a href="/topics/#{the_topic.id}%>">Show details</a></td>
       </tr>
       <% end %>
     </table>
@@ -40,6 +42,40 @@
       </div>
 
       <button>Create new post</button>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>Edit a topic</h2>
+
+    <form action="/modify_topic/<%= @topic.id %>" method="post">
+      <div>
+        <label for="edit_topic_box">Edit Topic</label>
+        <textarea id = "edit_topic_box" name = "input_body" value = "<%= @topic.id %>" placeholder = "Update your discussion topic..."></textarea>
+      </div>
+
+      <button>Update topic</button>
+    </form>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>Edit a post</h2>
+
+    <form action="/modify_post/<%= @topic.id %>" method="post">
+      <div>
+        <label for="edit_post_box">Edit Topic</label>
+        <textarea id = "edit_post_box" name = "input_body" value = "<%= @topic.id %>" placeholder = "Update your post..."></textarea>
+      </div>
+
+      <button>Update post</button>
     </form>
   </div>
 </div>
