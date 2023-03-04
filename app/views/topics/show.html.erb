@@ -19,7 +19,7 @@
         <td><%= a_post.body %></td>
         <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
-        <td><a href="/topics/#{the_topic.id}%>">Show details</a></td>
+        <td><a href="/posts/#{the_post.id}%>">Show details</a></td>
       </tr>
       <% end %>
     </table>
@@ -31,11 +31,11 @@
 
 <div>
   <div>
-    <h2>Add a new post</h2>
+    <h3>Add a new post</h3>
 
-    <form action="/insert_post/" method="post">
+    <form action="/insert_post" method = "post">
       <div>
-        <input id="post_id" type="hidden" value = "<%= @topic.id%>" name = "input_post_id">
+        <input type="hidden" id="topic_id_box" name="query_topic_id" value="<%= @topic.id %>">
 
         <label for="post_box">Create a New Post</label>
         <textarea id = "post_box" name = "input_body" placeholder = "Enter a new post ..."></textarea>
@@ -43,6 +43,8 @@
 
       <button>Create new post</button>
     </form>
+
+
 
   </div>
 </div>
@@ -52,7 +54,7 @@
 
 <div>
   <div>
-    <h2>Edit a topic</h2>
+    <h3>Edit a topic</h3>
 
     <form action="/modify_topic/<%= @topic.id %>" method="post">
       <div>
@@ -68,11 +70,11 @@
 
 <div>
   <div>
-    <h2>Edit a post</h2>
+    <h3>Edit a post</h3>
 
     <form action="/modify_post/<%= @topic.id %>" method="post">
       <div>
-        <label for="edit_post_box">Edit Topic</label>
+        <label for="edit_post_box">Edit Post</label>
         <textarea id = "edit_post_box" name = "input_body" placeholder = "Update your post..."></textarea>
       </div>
 
