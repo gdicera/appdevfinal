@@ -8,8 +8,6 @@ class PostsController < ApplicationController
     the_id = params.fetch("path_id")
     @the_post = Post.where({ :id => the_id }).at(0)
 
-    @list_of_posts = @topic.posts
-
     render({ :template => "posts/show.html.erb" })
   end
 

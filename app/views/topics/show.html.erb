@@ -19,7 +19,7 @@
         <td><%= a_post.body %></td>
         <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
-        <td><a href="/posts/#{the_post.id}%>">Show details</a></td>
+        <td><a href="/posts/<%= a_post.id %>">Show details</a></td>
       </tr>
       <% end %>
     </table>
@@ -63,22 +63,6 @@
       </div>
 
       <button>Update topic</button>
-    </form>
-  </div>
-</div>
-
-
-<div>
-  <div>
-    <h3>Edit a post</h3>
-
-    <form action="/modify_post/<%= @topic.id %>" method="post">
-      <div>
-        <label for="edit_post_box">Edit Post</label>
-        <textarea id = "edit_post_box" name = "input_body" placeholder = "Update your post..."></textarea>
-      </div>
-
-      <button>Update post</button>
     </form>
   </div>
 </div>
