@@ -13,16 +13,16 @@
       <tr>
         <th>User</th>
         <th>Topic</th>
-        <th>Body</th>
+        <th>Post</th>
         <th>Created at</th>
         <th>Updated at</th>
+        <th>Show details</th>
       </tr>
 
       <% @list_of_posts.each do |a_post| %>
       <tr>
-        <td><%= a_post.id %></td>
-        <td><%= a_post.user_id %></td>
-        <td><%= a_post.topic_id %></td>
+        <td><%= a_post.poster.first_name %> <%= a_post.poster.last_name %></td>
+        <td><%= a_post.topic.body %></td>
         <td><%= a_post.body %></td>
         <td><%= time_ago_in_words(a_post.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_post.updated_at) %> ago</td>
