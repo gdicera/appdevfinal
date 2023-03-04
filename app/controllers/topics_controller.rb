@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
 
   def create
     the_topic = Topic.new
-    the_topic.id = params.fetch("query_topic_id")
+    #the_topic.id = params.fetch("query_topic_id")
     the_topic.user_id = session.fetch(:user_id)
     the_topic.body = params.fetch("input_body")
 

@@ -29,7 +29,7 @@ class UserAuthenticationController < ApplicationController
   def destroy_cookies
     reset_session
 
-    redirect_to("/user_sign_out", { :notice => "Signed out successfully." })
+    redirect_to("/home", { :notice => "Signed out successfully." })
   end
 
   def sign_up_form
