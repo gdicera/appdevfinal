@@ -8,7 +8,6 @@
 #  posts_count :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  author_id   :string
 #  post_id     :integer
 #  user_id     :integer
 #
@@ -19,8 +18,7 @@ class Topic < ApplicationRecord
   has_many(:contributions, { :through => :user, :source => :posts })
 
   def topic_creator
-    return User.where({ :id => self.author_id }).at(0)
+    return User.where({ :id => self.user_id }).at(0)
   end
-
 
 end

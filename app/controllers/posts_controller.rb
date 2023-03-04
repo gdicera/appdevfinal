@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def create
     the_post = Post.new
 
-    the_post.topic_id = params.fetch("query_topic_id")
+    #the_post.topic_id = params.fetch("query_topic_id")
     the_post.user_id = session.fetch(:user_id)
     the_post.body = params.fetch("input_body")
 
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     the_id = params.fetch("path_id")
     the_post = Post.where({ :id => the_id }).at(0)
 
-    the_post.topic_id = params.fetch("query_topic_id")
+    #the_post.topic_id = params.fetch("query_topic_id")
     the_post.user_id = session.fetch(:user_id)
     the_post.body = params.fetch("input_body")
 

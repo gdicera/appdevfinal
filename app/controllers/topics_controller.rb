@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
 
   def create
     the_topic = Topic.new
-    the_topic.id = params.fetch("query_topic_id")
+    #the_topic.id = params.fetch("query_topic_id")
     the_topic.user_id = session.fetch(:user_id)
     the_topic.body = params.fetch("input_body")
 
@@ -31,8 +31,8 @@ class TopicsController < ApplicationController
     the_id = params.fetch("path_id")
     the_topic = Topic.where({ :id => the_id }).at(0)
 
-   the_topic.id = params.fetch("query_topic_id")
-    the_topic.author_id = session.fetch(:user_id)
+    #the_topic.id = params.fetch("query_topic_id")
+    the_topic.user_id = session.fetch(:user_id)
     the_topic.body = params.fetch("input_body")
 
     if the_topic.valid?

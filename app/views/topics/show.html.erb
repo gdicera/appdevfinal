@@ -33,9 +33,9 @@
   <div>
     <h2>Add a new post</h2>
 
-    <form action="/insert_post" method="post">
+    <form action="/insert_post/" method="post">
       <div>
-        <input id = "topic_id" type = "hidden" value = "<%= @topic.id %>" name = "query_topic_id">
+        <input id="post_id" type="hidden" value = "<%= @topic.id%>" name = "input_post_id">
 
         <label for="post_box">Create a New Post</label>
         <textarea id = "post_box" name = "input_body" placeholder = "Enter a new post ..."></textarea>
@@ -43,6 +43,7 @@
 
       <button>Create new post</button>
     </form>
+
   </div>
 </div>
 
@@ -72,7 +73,7 @@
     <form action="/modify_post/<%= @topic.id %>" method="post">
       <div>
         <label for="edit_post_box">Edit Topic</label>
-        <textarea id = "edit_post_box" name = "input_body" value = "<%= @topic.id %>" placeholder = "Update your post..."></textarea>
+        <textarea id = "edit_post_box" name = "input_body" placeholder = "Update your post..."></textarea>
       </div>
 
       <button>Update post</button>
