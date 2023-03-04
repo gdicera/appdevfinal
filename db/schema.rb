@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_194910) do
+ActiveRecord::Schema.define(version: 2023_03_04_205604) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2023_03_04_194910) do
 
   create_table "topics", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "posts_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -37,9 +36,6 @@ ActiveRecord::Schema.define(version: 2023_03_04_194910) do
     t.integer "post_id"
     t.string "profile_picture"
     t.string "school_name"
-    t.integer "liked_posts_count"
-    t.integer "posts_count"
-    t.integer "topics_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

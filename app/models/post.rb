@@ -11,9 +11,7 @@
 #
 class Post < ApplicationRecord
   belongs_to(:poster, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
-  has_many(:liked_posts, { :class_name => "LikedPost", :foreign_key => "post_id", :dependent => :destroy })
   belongs_to(:topic, { :required => true, :class_name => "Topic", :foreign_key => "topic_id", :counter_cache => true })
   has_one(:subject, { :through => :user, :source => :topics })
-  has_many(:likers, { :through => :liked_posts, :source => :user })
 
 end

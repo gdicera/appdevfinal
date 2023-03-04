@@ -52,17 +52,23 @@
 <hr>
 
 
-<div>
+<% if @topic.creator.id == session.fetch(:user_id) %>
+  <dt>Edit topic</dt>
   <div>
-    <h3>Edit a topic</h3>
-
-    <form action="/modify_topic/<%= @topic.id %>" method="post">
-      <div>
-        <label for="edit_topic_box">Edit Topic</label>
-        <textarea id = "edit_topic_box" name = "input_body" value = "<%= @topic.id %>" placeholder = "Update your discussion topic..."></textarea>
-      </div>
-
-      <button>Update topic</button>
-    </form>
+  <form action="/modify_topic/<%= @topic.id %>" method="post">
+    <div>
+      <label for="edit_topic_box"></label>
+      <textarea id = "edit_topic_box" name = "input_body" value = "<%= @topic.id %>" placeholder = "Update your discussion topic..."></textarea>
+    </div>
+    <button>Update topic</button>
+  </form>
   </div>
-</div>
+
+  <div>
+    <a href="/delete_topic/<%= @topic.id %>">Delete this topic</a>
+  </div>
+<% else %>
+<% end %>
+
+
+    

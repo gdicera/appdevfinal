@@ -2,13 +2,12 @@
 #
 # Table name: topics
 #
-#  id          :integer          not null, primary key
-#  body        :string
-#  name        :string
-#  posts_count :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
+#  id         :integer          not null, primary key
+#  body       :string
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
 #
 class Topic < ApplicationRecord
 
